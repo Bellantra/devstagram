@@ -6,8 +6,16 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        dd('Desde Muro...');
+        return view('dashboard');
+
+        //Redirect
+
     }
 }
