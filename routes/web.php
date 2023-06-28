@@ -33,4 +33,5 @@ Route::post('login', [LoginController::class, 'store']);
 
 Route::post('logout', [LogoutController::class, 'store'])->name('logout');
 
-Route::get('/wall', [PostController::class, 'index'])->name('post.index');
+//ejemplo route model bindind en laravel
+Route::get('/{user:username}', [PostController::class, 'index'])->name('post.index');
