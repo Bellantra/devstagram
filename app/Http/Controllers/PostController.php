@@ -44,12 +44,20 @@ class PostController extends Controller
         // ]);
 
         //Otra forma de crear 
-        $post = new Post;
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->image = $request->image;
-        $post->user_id = auth()->user()->id;
-        $post->save();
+        // $post = new Post;
+        // $post->title = $request->title;
+        // $post->description = $request->description;
+        // $post->image = $request->image;
+        // $post->user_id = auth()->user()->id;
+        // $post->save();
+
+        //Tercera forma con la relacion 
+        $request->user()->posts()->create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $request->image,
+            'user_id' => auth()->user()->id
+        ]);
 
         return redirect()->route('post.index', auth()->user()->username);
     }
