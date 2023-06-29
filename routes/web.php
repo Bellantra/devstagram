@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PostController;
@@ -35,3 +36,7 @@ Route::post('logout', [LogoutController::class, 'store'])->name('logout');
 
 //ejemplo route model bindind en laravel
 Route::get('/{user:username}', [PostController::class, 'index'])->name('post.index');
+Route::get('post/create', [PostController::class, 'create'])->name('post.create');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+
+Route::post('/images', [ImageController::class, 'store'])->name('images.store');
