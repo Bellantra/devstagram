@@ -1,13 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,11 @@ Route::post('login', [LoginController::class, 'store']);
 
 Route::post('logout', [LogoutController::class, 'store'])->name('logout');
 
+//perfil de rutas 
+Route::get('/edit-profile',[ProfileController::class, 'index'])->name('profile.index');
+Route::post('/edit-profile',[ProfileController::class, 'store'])->name('profile.store');
+
+
 //ejemplo route model bindind en laravel
 Route::get('/{user:username}', [PostController::class, 'index'])->name('post.index');
 Route::get('post/create', [PostController::class, 'create'])->name('post.create');
@@ -50,3 +57,4 @@ Route::post('/images', [ImageController::class, 'store'])->name('images.store');
 //Likes 
 Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('posts.likes.store');
 Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes.destroy');
+
