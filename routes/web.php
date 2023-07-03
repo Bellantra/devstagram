@@ -10,6 +10,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +23,12 @@ use App\Http\Controllers\FollowerController;
 |
 */
 
+//Estilo clousure
 // Route::get('/', function () {
-//     return view('welcome');
+//     return view('principal');
 // });
 
-Route::get('/', function () {
-    return view('principal');
-});
+Route::get('/',HomeController::class)->name('home');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);

@@ -26,7 +26,7 @@
              placeholder="jhon@gmail.com"
              class="border p-2 w-full rounded-lg @error('email') border-red-500   
              @enderror"
-             value="{{old('email')}}"
+             value="{{ old('email') }}"
             />
             @error('email')
             <p class=" bg-red-500 text-white my-1 rounded-lg text-xs p-1 text-center">{{$message}}</p>

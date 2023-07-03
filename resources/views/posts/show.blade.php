@@ -27,7 +27,7 @@
                 @endauth
                    
             </form>
-            <p class="font-bold">{{$post->likes->count()}} <span class="font-normal">Likes</span> </p>
+            <p class="font-bold">{{$post->likes->count()}} <span class="font-normal">@choice('Like|Likes',$post->likes->count())</span> </p>
         </div>
         @else
         <div class="p-3 flex items-center gap-4">
